@@ -1,55 +1,35 @@
-# Prerequisites
-*.d
+# ## C/C++ Project Gitignore ##
 
-# Object files
+# Compiled executables
+*.exe
+*.out
+*.app
+
+# Object and dependency files
 *.o
-*.ko
 *.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
+*.d
 
 # Precompiled Headers
 *.gch
 *.pch
 
-# Libraries
-*.lib
+# Libraries and shared objects
 *.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
+*.lib
 *.so
-*.so.*
-*.dylib
+*.dll
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Common build directories
+build/
+bin/
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# IDE and Editor specific files
+.vscode/
+.idea/
+*.swp
+*~
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# debug information files
-*.dwo
+# OS-generated files
+.DS_Store
+Thumbs.db
