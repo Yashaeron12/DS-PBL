@@ -1,35 +1,334 @@
-# ## C/C++ Project Gitignore ##
+# .gitignore - Enhanced Text Editor Project
 
-# Compiled executables
-*.exe
-*.out
-*.app
+##################################################
+# COMPILED OUTPUT & EXECUTABLES
+##################################################
 
-# Object and dependency files
+# Main executable
+enhanced_editor
+enhanced_editor.exe
+
+# Object files
 *.o
 *.obj
-*.d
 
-# Precompiled Headers
+# Compiled libraries
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Precompiled headers
 *.gch
 *.pch
 
-# Libraries and shared objects
-*.a
-*.lib
-*.so
-*.dll
+##################################################
+# BUILD DIRECTORIES
+##################################################
 
 # Common build directories
 build/
 bin/
+obj/
+debug/
+release/
+dist/
 
-# IDE and Editor specific files
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Autotools
+Makefile.in
+aclocal.m4
+compile
+config.guess
+config.h.in
+config.sub
+configure
+depcomp
+install-sh
+ltmain.sh
+missing
+*.m4
+
+##################################################
+# DEVELOPMENT TOOLS
+##################################################
+
+# Visual Studio Code
 .vscode/
-.idea/
-*.swp
-*~
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# OS-generated files
-.DS_Store
+# Visual Studio
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+*.ncb
+*.aps
+*.pdb
+*.idb
+*.ilk
+.vs/
+
+# Dev-C++
+*.dev
+*.layout
+
+# Code::Blocks
+*.cbp
+*.layout
+*.depend
+
+# CLion
+.idea/
+cmake-build-*/
+
+# Eclipse CDT
+.metadata
+.settings/
+.project
+.cproject
+
+##################################################
+# DEBUGGING & PROFILING
+##################################################
+
+# GDB
+gdb.txt
+*.gdb
+
+# Valgrind
+valgrind-out.txt
+*.valgrind
+
+# Core dumps
+core
+core.*
+vgcore.*
+
+# Address Sanitizer
+*.asan
+
+# Memory Sanitizer
+*.msan
+
+##################################################
+# TEMPORARY FILES
+##################################################
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Editor temporary files
+*#
+.#*
+
+# Vim
+*.vim
+Session.vim
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+##################################################
+# PROJECT SPECIFIC FILES
+##################################################
+
+# Test output files
+test_output.txt
+physics.txt
+sample.txt
+document.txt
+*.test
+
+# Log files
+*.log
+debug.txt
+output.txt
+
+# Test executables
+test_*
+*_test
+
+# Benchmark results
+benchmark_*.txt
+performance_*.txt
+
+##################################################
+# SYSTEM FILES
+##################################################
+
+# Windows
 Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+.directory
+.Trash-*
+
+##################################################
+# DOCUMENTATION BUILDS
+##################################################
+
+# Doxygen
+doxygen_warnings.txt
+html/
+latex/
+man/
+xml/
+
+# Sphinx
+_build/
+_static/
+_templates/
+
+##################################################
+# PACKAGE MANAGERS
+##################################################
+
+# Conan
+conanfile.txt.user
+conaninfo.txt
+conanbuildinfo.*
+
+# vcpkg
+vcpkg_installed/
+
+##################################################
+# STATIC ANALYSIS
+##################################################
+
+# Cppcheck
+cppcheck-report.xml
+*.cppcheck
+
+# PC-lint
+*.lnt
+
+# Clang Static Analyzer
+scan-build/
+
+##################################################
+# COVERAGE REPORTS
+##################################################
+
+# gcov
+*.gcno
+*.gcda
+*.gcov
+
+# lcov
+coverage/
+*.info
+
+##################################################
+# TESTING FRAMEWORKS
+##################################################
+
+# Unity Test Framework
+unity/
+
+# CUnit
+CUnitAutomated-*.xml
+
+# Google Test
+googletest/
+gtest/
+
+##################################################
+# DEVELOPMENT ARCHIVES
+##################################################
+
+# Compressed files (usually not source)
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# ISO images
+*.iso
+
+##################################################
+# CUSTOM ADDITIONS
+##################################################
+
+# Add any project-specific ignores here
+# Example:
+# my_custom_output/
+# *.custom
+
+##################################################
+# KEEP THESE FILES (NEGATION RULES)
+##################################################
+
+# Always include these important files
+!.gitignore
+!README.md
+!LICENSE
+!Makefile
+!CMakeLists.txt
+
+# Include all source files explicitly
+!*.c
+!*.h
+!*.cpp
+!*.hpp
+
+# Include documentation
+!docs/
+!*.md
+!*.txt
+!*.rst
+
+##################################################
+# END OF .gitignore
+##################################################
