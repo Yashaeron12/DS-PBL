@@ -1,12 +1,24 @@
 #include <string.h>
+#include <stdlib.h>
 #include "command_parser.h"
 
-
 char* parse_command(char* input) {
-char* expr = input + 6; // after ":eval("
-size_t len = strlen(expr);
-if (len > 0 && expr[len - 1] == ')') {
-expr[len - 1] = '\0'; // remove trailing ')'
+    // Extract expression from :eval(expression)
+    char* start = strchr(input, '(');
+    char* end = strrchr(input, ')');
+    if (start && end && start < end) {
+        start++; 
+        *end = '\0'; 
+        return start;
+    }
+    return NULL;
 }
-return expr;
+int is_eval_command(char* input) {
+    return strncmp(input, ":eval(", 6) == 0;
+}
+int is_editor_command(char* input) {
+    return input[0] == ':';
+}
+char* extract_eval_expression(char* input) {
+    return parse_command(input);
 }
