@@ -152,9 +152,15 @@ The project includes comprehensive testing for:
 
 This project is part of the DS-PBL (Data Structures - Project Based Learning) coursework.
 
-## 👨‍💻 Author
+## � Authors
 
-**Yashaeron12** - Advanced Mathematical Text Editor Implementation
+**Team Members:**
+- **Yashaeron12** - Project Lead & Core Implementation
+- **Arjun Singh** - Team Member & Development Contributor
+- **Vivek Choudhary** - Team Member & Development Contributor  
+- **Vidyansh Dwivedi** - Team Member & Development Contributor
+
+*Advanced Mathematical Text Editor - A collaborative DS-PBL project*
 
 ---
 
