@@ -183,8 +183,7 @@ double get_variable_bst(VariableBST* bst, const char* name) {
     if (node) {
         return node->value;
     } else {
-        printf("Undefined variable: %s\n", name);
-        return 0;
+        return NAN;  // Return NaN for undefined variables
     }
 }
 

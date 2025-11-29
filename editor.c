@@ -196,7 +196,7 @@ void edit_line(TextEditor* editor, int line_num, const char* new_text) {
 }
 
 void display_editor(TextEditor* editor) {
-    printf("\n--- Text Editor Content (LINKED LIST) ---\n");
+    printf("\n--- Text Editor Content ---\n");
     if (editor->total_lines == 0) {
         printf("(Empty document)\n");
     } else {
@@ -208,7 +208,7 @@ void display_editor(TextEditor* editor) {
         }
     }
     printf("--- End of Document ---\n");
-    printf("Lines: %d | Memory: Dynamic (Linked List)\n\n", editor->total_lines);
+    printf("Lines: %d |\n\n", editor->total_lines);
 }
 
 void save_to_file(TextEditor* editor, const char* filename) {

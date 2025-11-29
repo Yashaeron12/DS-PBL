@@ -16,6 +16,20 @@ void infix_to_postfix(char* infix, char* postfix) {
     int j = 0;
     int i = 0;
     
+    // Pre-process: normalize double negatives (-- becomes +)
+    char processed[1024];
+    int pi = 0;
+    for (int k = 0; infix[k]; k++) {
+        if (infix[k] == '-' && infix[k+1] == '-') {
+            processed[pi++] = '+';
+            k++;  // Skip the second minus
+        } else {
+            processed[pi++] = infix[k];
+        }
+    }
+    processed[pi] = '\0';
+    infix = processed;
+    
     while (infix[i]) {
         char c = infix[i];
         
@@ -24,10 +38,20 @@ void infix_to_postfix(char* infix, char* postfix) {
             continue;
         }
         
-        // Handle numbers (including decimals)
+        // Handle numbers (including decimals and scientific notation)
         if (isdigit(c) || c == '.') {
             while (isdigit(infix[i]) || infix[i] == '.') {
                 postfix[j++] = infix[i++];
+            }
+            // Handle scientific notation (e.g., 1e10, 2.5e-3)
+            if (infix[i] == 'e' || infix[i] == 'E') {
+                postfix[j++] = infix[i++];  // Add 'e' or 'E'
+                if (infix[i] == '+' || infix[i] == '-') {
+                    postfix[j++] = infix[i++];  // Add sign if present
+                }
+                while (isdigit(infix[i])) {
+                    postfix[j++] = infix[i++];  // Add exponent digits
+                }
             }
             postfix[j++] = ' ';
             continue;

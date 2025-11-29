@@ -294,7 +294,7 @@ int main() {
             printf("========================================================================\n");
             printf("                           TEXT EDITOR COMMANDS                       \n");
             printf("========================================================================\n");
-            printf("  :list                      | Show all lines with numbers            \n");
+            printf("  :show                      | Show all lines with numbers            \n");
             printf("  :insert N text             | Insert text at line N                 \n");
             printf("  :delete N                  | Delete line N                         \n");
             printf("  :clear                     | Clear all text                        \n");

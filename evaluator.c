@@ -175,6 +175,17 @@ EvalResult evaluate_postfix_typed(char* postfix) {
                 result.value = 0.0;
                 return result;
             }
+            if (strcmp(func_name, "tan") == 0) {
+                // Check if arg is 90, 270, -90, etc. (where tan is undefined)
+                double normalized = fmod(arg, 180.0);
+                if (normalized < 0) normalized += 180.0;
+                if (fabs(normalized - 90.0) < 0.0001) {
+                    result.has_error = 1;
+                    strcpy(result.error_message, "Tangent undefined at 90 degrees");
+                    result.value = 0.0;
+                    return result;
+                }
+            }
             
             double func_result = evaluate_function_integrated(func_name, arg);
             
@@ -208,6 +219,15 @@ EvalResult evaluate_postfix_typed(char* postfix) {
         else if (strncmp(token, "var_", 4) == 0) {
             char* var_name = token + 4;
             double value = get_variable_integrated(var_name);
+            
+            // Check if variable is undefined (returns NaN)
+            if (isnan(value)) {
+                result.has_error = 1;
+                sprintf(result.error_message, "Undefined variable: %s", var_name);
+                result.value = 0.0;
+                return result;
+            }
+            
             pushDouble(&s, value);
             
             // Variables might be non-integers
